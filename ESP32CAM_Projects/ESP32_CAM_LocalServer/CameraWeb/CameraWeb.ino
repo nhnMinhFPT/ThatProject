@@ -16,8 +16,8 @@
 
 #include "camera_pins.h"
 
-const char* ssid = "ThatProject";
-const char* password = "california";
+const char* ssid = "MinhNHN";
+const char* password = "minhnhn130517";
 const char* websocket_server_host = "192.168.1.220";
 const uint16_t websocket_server_port = 8888;
 
@@ -50,6 +50,7 @@ void setup() {
   config.pin_reset = RESET_GPIO_NUM;
   config.xclk_freq_hz = 10000000;
   config.pixel_format = PIXFORMAT_JPEG;
+  
   //init with high specs to pre-allocate larger buffers
   if(psramFound()){
     config.frame_size = FRAMESIZE_VGA;
@@ -61,15 +62,12 @@ void setup() {
     config.fb_count = 1;
   }
 
-
   // camera init
   esp_err_t err = esp_camera_init(&config);
   if (err != ESP_OK) {
     Serial.printf("Camera init failed with error 0x%x", err);
     return;
   }
-
- 
 
   WiFi.begin(ssid, password);
 
